@@ -1,8 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>LibDynamite_cs</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>LibDynamite-cs</Title>
+        <Authors>Michiel Bos</Authors>
+        <Description>Minimal C# wrapper for Dynamite's PKWARE decompressor.</Description>
+        <Copyright>Copyright (c) 2021 Michiel Bos</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/michielbos/LibDynamite-cs</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackProject>true</PackProject>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Content Include="runtimes/**" Link="runtimes/%(RecursiveDir)/%(Filename)%(Extension)">
+            <PackagePath>runtimes/</PackagePath>
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 </Project>
